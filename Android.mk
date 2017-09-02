@@ -1,6 +1,8 @@
 LOCAL_PATH := $(call my-dir)
 BB_PATH := $(LOCAL_PATH)
 
+GLOBAL_CLANG_EXCEPTION_PROJECTS += $(LOCAL_PATH)
+
 # Bionic Branches Switches (GB/ICS/L)
 BIONIC_ICS := false
 BIONIC_L := true
