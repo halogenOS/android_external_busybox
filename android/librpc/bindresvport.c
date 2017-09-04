@@ -45,6 +45,7 @@ extern long __set_errno(int n);
 #include <sys/socket.h>
 #include <netinet/in.h>
 
+#define	IPPORT_RESERVED		1024
 
 /*
  * Bind a socket to a privileged IP port
