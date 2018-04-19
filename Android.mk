@@ -1,5 +1,3 @@
-LOCAL_CLANG_EXCEPTION_PROJECTS += external/busybox
-LOCAL_CLANG_EXCEPTION_PROJECTS += external/busybox/android/librpc
 LOCAL_PATH := $(call my-dir)
 BB_PATH := $(LOCAL_PATH)
 
@@ -24,7 +22,6 @@ LOCAL_SRC_FILES := $(shell cat $(BB_PATH)/android/librpc.sources)
 LOCAL_C_INCLUDES := $(BB_PATH)/android/librpc
 LOCAL_MODULE := libuclibcrpc
 LOCAL_CFLAGS += -fno-strict-aliasing $(BUSYBOX_WARNING_HIDE)
-LOCAL_CLANG := false
 ifeq ($(BIONIC_L),true)
 LOCAL_CFLAGS += -DBIONIC_ICS -DBIONIC_L
 endif
@@ -167,7 +164,6 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLES)
 LOCAL_SHARED_LIBRARIES := libc libcutils libm
 LOCAL_STATIC_LIBRARIES := libclearsilverregex libuclibcrpc libselinux
 LOCAL_ADDITIONAL_DEPENDENCIES := $(busybox_prepare_full)
-LOCAL_CLANG := false
 include $(BUILD_EXECUTABLE)
 
 BUSYBOX_LINKS := $(shell cat $(BB_PATH)/busybox-$(BUSYBOX_CONFIG).links)
@@ -218,5 +214,4 @@ LOCAL_UNSTRIPPED_PATH := $(PRODUCT_OUT)/symbols/utilities
 $(LOCAL_MODULE): busybox_prepare
 LOCAL_PACK_MODULE_RELOCATIONS := false
 LOCAL_ADDITIONAL_DEPENDENCIES := $(busybox_prepare_full)
-LOCAL_CLANG := false
 include $(BUILD_EXECUTABLE)
